@@ -1,9 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+/*@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);*/
 
 @font-face {
-	font-family: 'icomoon';
-	font-family: yp; 
-	src:url("fonts/yp.ttf");
+	font-family: 'icomoon'; /* for:[IE9 Compat Modes] [IE6-IE8] [Modern Browsers] [Safari, Android, iOS] [Legacy iOS] */
 	src:url('../fonts/icomoon.eot');
 	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
 		url('../fonts/icomoon.woff') format('woff'),
@@ -11,6 +9,10 @@
 		url('../fonts/icomoon.svg#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
+}
+@font-face{
+	font-family: yp; 
+	src:url("fonts/yp.ttf");
 }
 
 body, html { font-size: 100%; padding: 0; margin: 0; height: 100%;}
