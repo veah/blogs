@@ -11,8 +11,8 @@
 	font-style: normal;
 }
 @font-face{
-	font-family: yp; 
-	src:url("fonts/yp.ttf");
+	font-family: 'yp'; 
+	src:url("../fonts/yp.ttf");
 }
 
 body, html { font-size: 100%; padding: 0; margin: 0; height: 100%;}
@@ -26,11 +26,15 @@ body, html { font-size: 100%; padding: 0; margin: 0; height: 100%;}
 }
 
 body {
+	width: 100%;
+	*cursor: default;
+	overflow: hidden;
     font-family: 'Lato', Calibri, Arial, sans-serif;
-    background: #333;
+    background: #F2F2F2;
     /*font-size: 0.9em;
     font-weight: 300;*/
 }
+
 
 a {
 	color: #f0f0f0;
