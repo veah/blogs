@@ -4,23 +4,123 @@
 	<meta charset="UTF-8">
 	<title>响应式网格（栅格化）布局</title>
 	<style type="text/css" media="screen">
+		*{
+			margin:0;
+			padding:0;
+			box-sizing: border-box;
+		}
+		.container{		   
+		   width: 100%; 		        
+		   max-width: 1200px; 
+		   padding:10px;	        
+		}
+		.row{
+			margin:0 -10px;
+		}
+
+		/*-- cleafix hack -- */ 
+		.row:before, 
+		.row:after {
+		   content:"";
+		   display: table ;
+		   clear:both;		    
+		}
+
+		[class*='col-'] {
+		   float: left; 
+		   min-height: 1px; 
+		   /*width: 8.33%;*/
+		   /*-- gutter -- */
+		   padding: 10px; 
+		}
+		
+		.content{
+			height: 50px;
+			background-color: #EEE;
+			border: 1px solid #999;
+		}
+
+		/*grid*/
+		.col-md-1  { width: 8.33333333%; }
+		.col-md-2  { width: 16.66666667%; }
+		.col-md-3  { width: 25%; }
+		.col-md-4  { width: 33.333333%; }
+		.col-md-5  { width: 41.666667%; }
+		.col-md-6  { width: 50%; }
+		.col-md-7  { width: 58.333333%; }
+		.col-md-8  { width: 66.666667%; }
+		.col-md-9  { width: 75%; }
+		.col-md-10 { width: 83.333333%; }
+		.col-md-11 { width: 91.666667%; }
+		.col-md-12 { width: 100%; }
+		
+
+		@media  (max-width:768px) {
+		  .container{max-width:750px;}
+		  .col-sm-1  { width: 8.33333333%; }
+		  .col-sm-2  { width: 16.66666667%; }
+		  .col-sm-3  { width: 25%; }
+		  .col-sm-4  { width: 33.333333%; }
+		  .col-sm-5  { width: 41.666667%; }
+		  .col-sm-6  { width: 50%; }
+		  .col-sm-7  { width: 58.333333%; }
+		  .col-sm-8  { width: 66.666667%; }
+		  .col-sm-9  { width: 75%; }
+		  .col-sm-10 { width: 83.333333%; }
+		  .col-sm-11 { width: 91.666667%; }
+		  .col-sm-12 { width: 100%; }
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-sm-6"><div class="content"></div></div>
+			<div class="col-md-4 col-sm-6"><div class="content"></div></div>
+			<div class="col-md-4 col-sm-12"><div class="content"></div></div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-3"><div class="content"></div></div>
+			<div class="col-md-6 col-sm-6"><div class="content"></div></div>
+			<div class="col-md-3 col-sm-3"><div class="content"></div></div>
+		</div>
+		<div class="row">
+			<div class="col-md-1 col-sm-2"><div class="content"></div></div>
+			<div class="col-md-1 col-sm-2"><div class="content"></div></div>
+			<div class="col-md-2 col-sm-8"><div class="content"></div></div>
+			<div class="col-md-2 col-sm-3"><div class="content"></div></div>
+			<div class="col-md-6 col-sm-3"><div class="content"></div></div>
+		</div>
+	</div>
+	
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>响应式网格（栅格化）布局</title>
+	<style type="text/css" media="screen">
+	*{
+		margin:0;
+		padding: 0;
+		box-sizing: border-box;
+	}
 		.container{
 		        width: 100%; 
 		        max-width: 1200px; 
 		        padding:0 10px;
 		        
 		    }
-
 		/*-- our cleafix hack -- */ 
 		.row:before, 
 		.row:after {
 		    content:"";
 		      display: table ;
 		    clear:both;
-		    margin:0 -10px;
-		    box-sizing: border-box; 
+		    margin:0 -10px; 
 		}
-
 		[class*='col-'] {
 		    float: left; 
 		    height: 50px; 
@@ -30,7 +130,6 @@
 		    background-color: #EEE;
 		    border: 1px solid #999;
 		}
-
 		.col-1,.col-2{
 			width: 33.33333333%;
 		}
@@ -72,4 +171,4 @@
 		</div>
 	</div>
 </body>
-</html>
+</html -->
