@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>响应式网格（栅格化）布局</title>
+	<style type="text/css" media="screen">
+		.container{
+		        width: 100%; 
+		        max-width: 1200px; 
+		        padding:0 10px;
+		        
+		    }
+
+		/*-- our cleafix hack -- */ 
+		.row:before, 
+		.row:after {
+		    content:"";
+		      display: table ;
+		    clear:both;
+		    margin:0 -10px;
+		    box-sizing: border-box; 
+		}
+
+		[class*='col-'] {
+		    float: left; 
+		    height: 50px; 
+		    width: 8.33%; 
+		    /*-- our gutter -- */
+		    margin: 10px; 
+		    background-color: #EEE;
+		    border: 1px solid #999;
+		}
+
+		.col-1,.col-2{
+			width: 33.33333333%;
+		}
+		.col-3{
+			width: 25%;
+		}
+		.col-4{
+			width: 50%;
+		}
+		.col-5{
+			width: 8.33333333%;
+		}
+		.col-6,.col-7{
+			width:16.66666667%;
+		}
+		.col-8{
+			width: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col-1"></div>
+			<div class="col-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-3"></div>
+			<div class="col-4"></div>
+			<div class="col-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-5"></div>
+			<div class="col-5"></div>
+			<div class="col-6"></div>
+			<div class="col-7"></div>
+			<div class="col-8"></div>
+		</div>
+	</div>
+</body>
+</html>
