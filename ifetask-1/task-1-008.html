@@ -33,13 +33,17 @@
 		   /*-- gutter -- */
 		   padding: 10px; 
 		}
-		
-		.content{
-			height: 50px;
-			background-color: #EEE;
-			border: 1px solid #999;
-		}
 
+		/*use [:after] to replace several div.contents*/
+		[class*='col-']:after {
+			display: block;
+			content: "";
+			width: 100%;
+			height: 50px;
+		    background: #eee;
+		    outline: 1px solid #999;
+		}
+		
 		/*grid*/
 		.col-md-1  { width: 8.33333333%; }
 		.col-md-2  { width: 16.66666667%; }
@@ -75,21 +79,21 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 col-sm-6"><div class="content"></div></div>
-			<div class="col-md-4 col-sm-6"><div class="content"></div></div>
-			<div class="col-md-4 col-sm-12"><div class="content"></div></div>
+			<div class="col-md-4 col-sm-6"></div>
+			<div class="col-md-4 col-sm-6"></div>
+			<div class="col-md-4 col-sm-12"></div>
 		</div>
 		<div class="row">
-			<div class="col-md-3 col-sm-3"><div class="content"></div></div>
-			<div class="col-md-6 col-sm-6"><div class="content"></div></div>
-			<div class="col-md-3 col-sm-3"><div class="content"></div></div>
+			<div class="col-md-3 col-sm-3"></div>
+			<div class="col-md-6 col-sm-6"></div>
+			<div class="col-md-3 col-sm-3"></div>
 		</div>
 		<div class="row">
-			<div class="col-md-1 col-sm-2"><div class="content"></div></div>
-			<div class="col-md-1 col-sm-2"><div class="content"></div></div>
-			<div class="col-md-2 col-sm-8"><div class="content"></div></div>
-			<div class="col-md-2 col-sm-3"><div class="content"></div></div>
-			<div class="col-md-6 col-sm-3"><div class="content"></div></div>
+			<div class="col-md-1 col-sm-2"></div>
+			<div class="col-md-1 col-sm-2"></div>
+			<div class="col-md-2 col-sm-8"></div>
+			<div class="col-md-2 col-sm-3"></div>
+			<div class="col-md-6 col-sm-3"></div>
 		</div>
 	</div>
 	
@@ -113,22 +117,34 @@
 		        padding:0 10px;
 		        
 		    }
+		.row{
+			margin:0 -10px; 
+		}
 		/*-- our cleafix hack -- */ 
 		.row:before, 
 		.row:after {
 		    content:"";
-		      display: table ;
-		    clear:both;
-		    margin:0 -10px; 
+		    display: table ;
+		    clear:both;		    
 		}
 		[class*='col-'] {
 		    float: left; 
-		    height: 50px; 
-		    width: 8.33%; 
+		    /*height: 50px; 
+		    width: 8.33%; */
 		    /*-- our gutter -- */
-		    margin: 10px; 
-		    background-color: #EEE;
-		    border: 1px solid #999;
+		    /*margin: 10px; */
+		    padding: 0 10px;
+		    /*background-color: #EEE;
+		    outline: 1px solid #999;*/
+		}
+
+		[class*='col-']:after {
+			display: block;
+			content: "";
+			width: 100%;
+			height: 50px;
+		    background: #eee;
+		    outline: 1px solid #999;
 		}
 		.col-1,.col-2{
 			width: 33.33333333%;
