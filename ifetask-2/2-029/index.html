@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="vertify.js"></script>
+    <link rel="stylesheet" href="theme.css">
+    <title>IFE-29</title>
+</head>
+<body>
+    <label for="name">姓名:</label><input class="input" type="text" id="name"> <button class="btn" id="vertifyBtn">验证</button>
+    <div class="message" id="messageBox"></div>
+    <script type="text/javascript">
+        var nameInput = document.getElementById("name");
+        var messageBox = document.getElementById("messageBox");
+        var v = $({
+            inputWarpper:{
+                inputBox:nameInput,
+                successClass:"success",
+                errorClass:"error"
+            },
+            messageWarpper:{
+                messageBox:messageBox,
+                successClass:"success",
+                errorClass:"error"
+            },
+            text:"必填，长度为4-16个字符",
+            vertifyFunc:function(text){
+                if(text==""){
+                    return {res:false,text:"姓名不能为空"};
+                }
+                if(text.length>16||text.length<4){
+                    return {res:false,text:"姓名长度必须为4-16个字符"};
+                }else{
+                    return {res:true,text:"名称格式正确"};
+                }
+            }
+        });
+        var vertifyBtn = document.getElementById('vertifyBtn');
+        vertifyBtn.addEventListener('click',function(){
+            v.vertify();
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+.input{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #D0D0D0;
+    outline:none;
+}
+.input.error{
+    border-color:#e25b69;
+}
+.input.success{
+    border-color:#94cd85;
+}
+.btn{
+    background-color:#2f79ba;
+    outline: none;
+    border:1px solid #2f79ba;
+    border-radius: 2px;
+}
+.message{
+    color:#D0D0D0;
+}
+.message.success{
+    color:#94cd85;
+}
+.message.error{
+    color:#e25b69;
+}
