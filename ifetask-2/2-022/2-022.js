@@ -1,4 +1,4 @@
-(function(){
+
 			var current,timer,
 			queue = [],
 			root = document.getElementsByClassName("one")[0], //取得根节点
@@ -29,7 +29,7 @@
 			function showOut(){
 				current = queue.shift();
 				if(current){
-					current.style.backgroundColor = '#90CEFF';
+					current.style.backgroundColor = '#00B2EE';
 					timer = setTimeout(function(){
 						current.style.backgroundColor = '#fff';
 						showOut();
@@ -58,4 +58,3 @@
 
 				showOut();
 			};
-		})();
