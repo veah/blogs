@@ -27,7 +27,7 @@
 			}
 
 			function showOut(){
-				current = queue.shift();
+				current = queue.shift(); //FIFO
 				if(current){
 					current.style.backgroundColor = '#00B2EE';
 					timer = setTimeout(function(){
