@@ -1,7 +1,10 @@
 var queue = [];
 var tempNode = null;
 var current,timer;
-var root = document.getElementById("root");
+var v = "";
+var found = false;
+var rootNode = document.getElementById("rootNode");
+var search = document.getElementById("search");
 var btn  = document.getElementById("btn");
 
 //广度优先
@@ -49,28 +52,27 @@ function showOut(){
 		timer = setTimeout(function(){
 			current.style.backgroundColor = '#fff';
 			showOut();
-		},750);
+		},800);
 	}
 }
 
 function showResult(){
 	if (queue.length === 0 && !found) {
-	    alert("没有找到");
+	    alert("Not Found");
 	}
-	head = queue.shift(); //出队
-	if (head) {
-	    text = head.firstChild.nodeValue;
-	    if (trim(text) === search.value) {
-	        head.style.backgroundColor = "deeppink";
+	current = queue.shift(); //出队
+	if (current) {
+	    v = current.firstChild.nodeValue;
+	    if (v.trim() === search.value) {
+	        current.style.backgroundColor = "deeppink";
 	        found = true;
-	        endTime = new Date();
-	        alert("Bingo！本次查询时间：" + (endTime - startTime) / 1000 + "s");
+	        alert("The text is in pink");
 	        return;
 	    } else {
-	        head.style.backgroundColor = "#6fa3ff";//显示蓝色
+	        current.style.backgroundColor = "#6fa3ff";
 	        timer = setTimeout(function () {
-	            head.style.backgroundColor = "#fff";//1秒后节点的蓝色变为白色
-	            searchShow(); //递归调用，使要显示的节点不停出队显示，直至为空
+	            current.style.backgroundColor = "#fff";
+	            showResult(); 
 	        }, 800);
 	    }
 	}
@@ -86,18 +88,21 @@ function show(){
 
 btn.onclick = function (x){
 				if (queue.length>0){
-					current.style.backgroundColor = '#fff'
+					current.style.backgroundColor = '#fff';
 					queue = [];
 					tempNode= null;
+					found = false;
 					clearTimeout(timer);
 				}
 				//判断点击按钮类型
 				switch (x.target.id) {  
 					case "pre" : 
-						preOrder(root);						
+						preOrder(rootNode);						
 						break;
 					case "BFS" : 					
-						BFS(root);
+						BFS(rootNode);
+						break;
+					default:
 						break;
 				}
 
