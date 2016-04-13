@@ -13,32 +13,32 @@
 				align-items: center;
 				justify-content: center;
 				background-color: #fff;
+				margin:10px;
 			}
 			.five{
 				position:relative;
 				top: -50px;
 				width:80%;
 				height:20%;
-				margin:5px;
+				/*margin:5px;*/
 			}
 			.four {
 				width: 20%;
 				height: 90%;
-				margin: 20px;
+				/*margin: 20px;*/
 			}
 			.three {
 				width: 38%;
 				height: 90%;
-				margin: 20px;	
+				/*margin: 20px;	*/
 			}
 			.two {
 				width: 45%;
 				height: 90%;
-				margin: 20px;
+				/*margin: 20px;*/
 			}
 			.one {
-
-				width: 1000px;
+				width: 1200px;
 				height: 300px;
 				margin: 20px auto;	
 			}
@@ -50,6 +50,10 @@
 			}
 			#btn{
 				margin: 0 auto;
+				border: none;
+			}
+			.search{
+				margin: 20px auto;
 				border: none;
 			}
 	</style>
@@ -84,13 +88,14 @@
 				</div>
 			</div>
 	</div>
-		<div id="btn">
-			<button id="pre">先序</button>
-			<button id="BFS">BFS</button>
-		</div>
-		<form>
-			<label for="search">请输入：<input type="text" id="search"></label>
-		</form>
+	<div class="search">
+		<p>请点击按钮遍历，或输入内容查找:</p>
+		<input type="text" id="search" />
+	</div>
+	<div id="btn">
+		<button id="pre">先序</button>
+		<button id="BFS">BFS</button>
+	</div>
 	<script type="text/javascript" src="2-023.js">
 	</script>
 </body>

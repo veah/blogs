@@ -1,6 +1,5 @@
 var queue = [];
-var tempNode = null;
-var current,timer;
+var current = timer = null;
 var v = "";
 var found = false;
 var rootNode = document.getElementById("rootNode");
@@ -10,7 +9,7 @@ var btn  = document.getElementById("btn");
 //广度优先
 function BFS(node){
 	if(node.firstElementChild){		//首先判断第一子节点是否存在，不存在就啥也不搞
-		var temp = [];
+		var temp = [];				//创建一个临时数组存放待查节点
 		temp.push(node);
 	}
 	while(temp.length>0){
@@ -55,12 +54,14 @@ function preOrder(node){
 // 		},800);
 // 	}
 // }
+
+//优化版
 function showOut(){
 	timer = setInterval(function(){
 		if(current){
 			current.style.backgroundColor = '#fff';
 		}
-		if(queue.length==0){
+		if(queue.length===0){
 			clearInterval(timer);
 		}else{
 			current = queue.shift();
@@ -68,13 +69,16 @@ function showOut(){
 		}
 	},800)
 }
+
 function showResult(){
 	if (queue.length === 0 && !found) {
 	    alert("Not Found");
 	}
-	current = queue.shift(); //出队
+	current = queue.shift(); 
 	if (current) {
-	    v = current.firstChild.nodeValue;
+		//防止空白节点报错
+	    v = current.firstChild?current.firstChild.nodeValue:"";
+
 	    if (v.trim() === search.value) {
 	        current.style.backgroundColor = "deeppink";
 	        found = true;
@@ -85,7 +89,7 @@ function showResult(){
 	        timer = setTimeout(function () {
 	            current.style.backgroundColor = "#fff";
 	            showResult(); 
-	        }, 800);
+	        }, 500);
 	    }
 	}
 }
@@ -99,24 +103,29 @@ function show(){
 }
 
 btn.onclick = function (x){
-				if (queue.length>0){
-					current.style.backgroundColor = '#fff';
-					queue = [];
-					tempNode= null;
-					found = false;
-					clearTimeout(timer);
-				}
-				//判断点击按钮类型
-				switch (x.target.id) {  
-					case "pre" : 
-						preOrder(rootNode);						
-						break;
-					case "BFS" : 					
-						BFS(rootNode);
-						break;
-					default:
-						break;
-				}
+	if (queue.length>0){
+		current.style.backgroundColor = '#fff';
+		queue = [];
+		tempNode= null;
+		found = false;
+		clearTimeout(timer);
+	}
+	//判断点击按钮类型
+	switch (x.target.id) {  
+		case "pre" : 
+			preOrder(rootNode);						
+			break;
+		case "BFS" : 					
+			BFS(rootNode);
+			break;
+		default:
+			break;
+	}
 
-				show();
-			};
+	show();
+};
+
+//自动清空输入框
+search.addEventListener("focus",function() {
+    this.value = "";
+});
