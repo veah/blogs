@@ -33,29 +33,41 @@ function BFS(node){
 function preOrder(node){
 	if(node){
 		queue.push(node);
-		preOrder(node.firstElementChild);
+		arguments.callee(node.firstElementChild);
 		if(node.firstElementChild){
 			tempNode = node.firstElementChild.nextElementSibling;
 			 while(tempNode){
 			 	p = tempNode;
-			 	preOrder(tempNode);
+			 	arguments.callee(tempNode);
 			 	tempNode = p.nextElementSibling;
 			}
 		}
 	}
 }
 
+// function showOut(){
+// 	current = queue.shift(); //FIFO
+// 	if(current){
+// 		current.style.backgroundColor = '#00B2EE';
+// 		timer = setTimeout(function(){
+// 			current.style.backgroundColor = '#fff';
+// 			showOut();
+// 		},800);
+// 	}
+// }
 function showOut(){
-	current = queue.shift(); //FIFO
-	if(current){
-		current.style.backgroundColor = '#00B2EE';
-		timer = setTimeout(function(){
+	timer = setInterval(function(){
+		if(current){
 			current.style.backgroundColor = '#fff';
-			showOut();
-		},800);
-	}
+		}
+		if(queue.length==0){
+			clearInterval(timer);
+		}else{
+			current = queue.shift();
+			current.style.backgroundColor = '#00B2EE';
+		}
+	},800)
 }
-
 function showResult(){
 	if (queue.length === 0 && !found) {
 	    alert("Not Found");
