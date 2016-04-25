@@ -74,7 +74,19 @@ TreeNode.protptype = {
 		    this.selfElement.getElementsByClassName("node-title")[0].className = "node-title";
 		}
 	},
-	deleteNode: function(){},
+	deleteNode: function(){
+		var i = null;
+		this.parent.selfElement.removeChild(this.selfElement);//删除DOM节点
+		//从父节点里删除该节点
+		for(i=0;i<this.parent.childs.length;i++){
+			if(this.parent.childs[i] == this){
+				this,parent.chilsd.splice(i,1);
+				break;
+			}
+		}
+		//更新父节点箭头样式
+		this.parent.render(true,false);
+	},
 	addChild: function(){},
 	toggleFold: function(){},
 }
