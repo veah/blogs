@@ -40,7 +40,7 @@ span{
     display: inline-block;
     margin-right: 6px;
 }
-.right-arrow{
+.arrow-folded{
     width: 0;
     height: 0;
     border-left: 10px solid #6898c2;
@@ -48,39 +48,39 @@ span{
     border-bottom: 5px solid transparent;
     cursor: pointer;
 }
-.down-arrow{
-    width: 0;
+.arrow-expanded{
+    width: 0;//
     height: 0;
     border-top: 10px solid #6898c2;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     cursor: pointer;
 }
-.empty-arrow{
+.arrow-none{
     border-left:10px solid transparent;
 }
-.node-title{
+.node-name{
     font-family: "Microsoft YaHei UI";
     font-size: 14px;
     color: #6898c2;
     line-height: 1.5em;
 }
-.node-title:hover{
+.node-name:hover{
     color: blue;
     cursor: pointer;
 }
-.node-title-highlight{
+.node-name-highlight{
     color: red;
     font-weight: bold;
 }
-.addIcon,.deleteIcon{
+.add-btn,.delete-btn{
     display: none;
     vertical-align: top;
 }
-.addIcon:hover,.deleteIcon:hover{
+.add-btn:hover,.delete-btn:hover{
     cursor: pointer;
 }
-.node-header:hover>.addIcon,.node-header:hover>.deleteIcon{
+.node-header:hover>.add-btn,.node-header:hover>.delete-btn{
     display: inline;
 }
 br{

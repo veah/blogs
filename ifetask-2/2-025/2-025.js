@@ -33,7 +33,10 @@ function TreeNode(obj){ 	// TreeNode([arguments])
 }
 //原型模式
 TreeNode.protptype = {
-	constrcutor: TreeNode,  //对象字面量重写原型会重写constructor，因此重新设置
+
+	 //对象字面量重写原型会重写constructor，因此重新设置
+	constrcutor: TreeNode, 
+
 	isLeaf: function(){
 		return this.childs.length == 0;
 	}
@@ -43,7 +46,7 @@ TreeNode.protptype = {
 		return true;
 	}
 	//样式设置
-	render: function(arrow,visibility,highlight,deHighlight){
+	render: function(arrow,visibility,toHighlight,deHighlight){
 		var $ = null;
 		if(arguments.length<3){
 			highlight = false;
@@ -60,7 +63,7 @@ TreeNode.protptype = {
 				$.className = "arrow arrow-expanded"
 			}
 		}
-		if(visibility){
+		if(visibility){		//尝试:target实现折叠
 			if(this.selfElement.className.indexOf("nodebody-visible") == -1){
 				this.selfElement.className = "nodebody-visible";
 			} else{
@@ -68,12 +71,13 @@ TreeNode.protptype = {
 			}
 		}
 		if (toHighlight) { // 设为高亮
-		    this.selfElement.getElementsByClassName("node-title")[0].className = "node-title node-title-highlight";
+		    this.selfElement.getElementsByClassName("node-name")[0].className = "node-title node-title-highlight";
 		}
 		if (deHighlight) { // 取消高亮
-		    this.selfElement.getElementsByClassName("node-title")[0].className = "node-title";
+		    this.selfElement.getElementsByClassName("node-name")[0].className = "node-title";
 		}
 	},
+
 	deleteNode: function(){
 		var i = null;
 		this.parent.selfElement.removeChild(this.selfElement);//删除DOM节点
@@ -87,6 +91,57 @@ TreeNode.protptype = {
 		//更新父节点箭头样式
 		this.parent.render(true,false);
 	},
-	addChild: function(){},
-	toggleFold: function(){},
-}
+	addChild: function(text){
+		if(text.trim() == ""){
+			alert("cannot be empty");
+			return;
+		}
+		if(text === null) return; //prompt点击cancel返回null
+
+		//若当前节点非叶子节点且关闭，则将其展开
+		if(!this.isLeaf()&&this.isFolded()){
+			this.toggleFold();
+		}
+		this.createNode(text);
+		//使用匿名函数创建块级作用域，避免变量提升创建多余变量；
+		
+	},
+	createNode: function(text){
+		var newNode = document.createElement('div'),
+			newHeader  = document.createElement('label'),
+			newArrow = document.createElement('div'),
+			newNodeName = document.createElement('sapn'),
+			newDel = document.createElement('img'),
+			newAdd = document.createElement('img');
+
+		//set className
+		newNode.className = "nodebody-visible";
+		newHeader.className = "node-header";
+		newArrow.className = "arrow arrow-none";
+		newNodeName.className = "node-name";
+		newDel.className = "delete-btn";
+		newAdd.className = "add-btn";
+
+		//append
+		newHeader.appendChild(newArrow);
+		newHeader.appendChild(newNodeName);
+		newHeader.appendChild(newAdd);
+		newHeader.appendChild(newDel);
+		newNode.appendChild(newHeader);
+		this.selfElement.appendChild(newNode);
+		//创建对应的treenode对象
+		this.childs.push(new TreeNode({parent:this,childs:[],data:text,selfElement:newNode}));
+		//渲染样式
+		this.render(true,false);
+		return this;
+	},
+	toggleFold: function(){
+		if(this,leaf()) return;
+		for(var i=0;i<thi.childs.length;i++){
+			this.childs[i].render(false,true);
+		}
+		this.render(true,false);
+		return this;
+		}
+	},
+};
