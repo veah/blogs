@@ -1,7 +1,5 @@
 module.exports = {
-    configureWebpack: {
-        build: {
-            assetsPublicPath: './'
-        }
-    }
+    baseUrl: process.env.NODE_ENV === 'production'
+        ? './'
+        : '/'
 }
