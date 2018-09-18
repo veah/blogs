@@ -1,4 +1,4 @@
-# veah.github.io
+# blogs
 
 ## Project setup
 ```

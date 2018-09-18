@@ -1,80 +1,21 @@
 {
-    "name": "veah.github.io",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "NODE_ENV=production && vue-cli-service build",
-        "lint": "vue-cli-service lint"
-    },
-    "dependencies": {
-        "vue": "^2.5.17",
-        "vue-router": "^3.0.1"
-    },
-    "devDependencies": {
-        "@vue/cli-plugin-babel": "^3.0.3",
-        "@vue/cli-plugin-eslint": "^3.0.3",
-        "@vue/cli-service": "^3.0.3",
-        "@vue/eslint-config-standard": "^3.0.3",
-        "vue-template-compiler": "^2.5.17"
-    },
-    "eslintConfig": {
-        "root": true,
-        "env": {
-            "node": true
-        },
-        "extends": [
-            "plugin:vue/essential",
-            "@vue/standard"
-        ],
-        "rules": {
-            "vue/name-property-casing": [
-                "error",
-                "PascalCase"
-            ],
-            "vue/attribute-hyphenation": [
-                0
-            ],
-            "vue/mustache-interpolation-spacing": 0,
-            "vue/require-prop-types": [
-                1
-            ],
-            "vue/require-default-prop": [
-                1
-            ],
-            "vue/max-attributes-per-line": [
-                2,
-                {
-                    "singleline": 3,
-                    "multiline": {
-                        "max": 1,
-                        "allowFirstLine": false
-                    }
-                }
-            ],
-            "no-return-assign": 0,
-            "comma-dangle": 0,
-            "vue/html-indent": [
-                2,
-                4
-            ],
-            "indent": [
-                2,
-                4
-            ]
-        },
-        "parserOptions": {
-            "parser": "babel-eslint"
-        }
-    },
-    "postcss": {
-        "plugins": {
-            "autoprefixer": {}
-        }
-    },
-    "browserslist": [
-        "> 1%",
-        "last 2 versions",
-        "not ie <= 8"
-    ]
+  "name": "blogs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "NODE_ENV=production && vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.3",
+    "@vue/cli-plugin-eslint": "^3.0.3",
+    "@vue/cli-service": "^3.0.3",
+    "@vue/eslint-config-standard": "^3.0.3",
+    "vue-template-compiler": "^2.5.17"
+  }
 }

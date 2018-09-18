@@ -1,6 +1,4 @@
 module.exports = {
-    baseUrl: process.env.NODE_ENV === 'production'
-        ? './'
-        : '/',
-    outputDir: 'docs'
+  baseUrl: process.env.NODE_ENV === 'production' ? './' : '/',
+  outputDir: 'docs'
 }
