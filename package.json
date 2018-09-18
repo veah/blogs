@@ -28,7 +28,10 @@
       "@vue/standard"
     ],
     "rules": {
-        "indent": ["error", 4]
+      "indent": [
+        "error",
+        4
+      ]
     },
     "parserOptions": {
       "parser": "babel-eslint"
