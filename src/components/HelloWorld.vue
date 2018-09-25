@@ -34,7 +34,10 @@
 export default {
     name: 'hello-world',
     props: {
-        msg: String
+        msg: {
+            type: String,
+            required: true
+        }
     },
     async created () {
         await 1
