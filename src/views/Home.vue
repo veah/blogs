@@ -1,101 +1,81 @@
 <template>
-    <div class="page-container">
-        <md-app md-waterfall md-mode="fixed-last">
-            <md-app-toolbar class="md-large md-dense md-primary">
-                <div class="md-toolbar-row">
-                    <div class="md-toolbar-section-start">
-                        <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
-                            <md-icon>menu</md-icon>
-                        </md-button>
+    <div class="home-page">
+        <md-card v-for="(card, index) of cardList" :key="index" md-with-hover>
+            <md-card-header>
+                <md-card-header-text>
+                    <div class="md-title">{{ card.title}}</div>
+                    <div class="md-subhead">{{ card.subTitle }}</div>
+                </md-card-header-text>
 
-                        <span class="md-title">My Title</span>
-                    </div>
+                <md-card-media :class="[card.size === 'big' ? 'md-big' : (card.size === 'medium' ? 'md-medium' : '')]">
+                    <img :src="card.imgUrl" alt="People">
+                </md-card-media>
 
-                    <div class="md-toolbar-section-end">
-                        <md-button class="md-icon-button">
-                            <md-icon>more_vert</md-icon>
-                        </md-button>
-                    </div>
-                </div>
+            </md-card-header>
 
-                <div class="md-toolbar-row">
-                    <md-tabs class="md-primary">
-                        <md-tab id="tab-home" md-label="Home"></md-tab>
-                        <md-tab id="tab-pages" md-label="Pages"></md-tab>
-                        <md-tab id="tab-posts" md-label="Posts"></md-tab>
-                        <md-tab id="tab-favorites" md-label="Favorites"></md-tab>
-                    </md-tabs>
-                </div>
-            </md-app-toolbar>
+            <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+            </md-card-actions>
+        </md-card>
 
-            <md-app-drawer :md-active.sync="menuVisible">
-                <md-toolbar class="md-transparent" md-elevation="0">Navigation</md-toolbar>
+        <md-card>
+            <md-card-media-actions>
+                <md-card-media>
+                    <img src="https://vuematerial.io/assets/examples/villains.png" alt="Cover">
+                </md-card-media>
 
-                <md-list>
-                    <md-list-item>
-                        <md-icon>move_to_inbox</md-icon>
-                        <span class="md-list-item-text">Inbox</span>
-                    </md-list-item>
+                <md-card-actions>
+                    <md-button class="md-icon-button">
+                        <md-icon>favorite</md-icon>
+                    </md-button>
 
-                    <md-list-item>
-                        <md-icon>send</md-icon>
-                        <span class="md-list-item-text">Sent Mail</span>
-                    </md-list-item>
+                    <md-button class="md-icon-button">
+                        <md-icon>bookmark</md-icon>
+                    </md-button>
 
-                    <md-list-item>
-                        <md-icon>delete</md-icon>
-                        <span class="md-list-item-text">Trash</span>
-                    </md-list-item>
-
-                    <md-list-item>
-                        <md-icon>error</md-icon>
-                        <span class="md-list-item-text">Spam</span>
-                    </md-list-item>
-                </md-list>
-            </md-app-drawer>
-
-            <md-app-content>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-            </md-app-content>
-        </md-app>
+                    <md-button class="md-icon-button">
+                        <md-icon>share</md-icon>
+                    </md-button>
+                </md-card-actions>
+            </md-card-media-actions>
+        </md-card>
     </div>
 </template>
 
 <script>
 export default {
     name: 'last-row-fixed',
-    // components: {
-    //     MdApp, MdIcon, MdButton, MdTabs, MdList
-    // },
     data: () => ({
-        menuVisible: false
+        cardList: [
+            {
+                imgUrl: 'https://vuematerial.io/assets/examples/avatar-2.jpg',
+                title: 'Media card',
+                subHead: 'subHead',
+                size: 'normal',
+            },
+            {
+                imgUrl: 'https://vuematerial.io/assets/examples/card-weather.png',
+                title: 'Media card',
+                subHead: 'subHead',
+                size: 'medium',
+            },
+            {
+                imgUrl: 'https://vuematerial.io/assets/examples/cover.png',
+                title: 'Media card',
+                subHead: 'subHead',
+                size: 'big',
+            }
+        ]
     })
 }
 </script>
 
 <style lang="scss" scoped>
-    .md-app {
-        max-height: 400px;
-        border: 1px solid rgba(#000, .12);
-    }
-
-    // Demo purposes only
-    .md-drawer {
-        width: 230px;
-        max-width: calc(100vw - 125px);
+    .md-card {
+        width: 320px;
+        margin: 4px;
+        display: inline-block;
+        vertical-align: top;
     }
 </style>
